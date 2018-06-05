@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { ProjectModel } from '../../../model/projectModel';
 
 @Component({
   selector: 'app-employees-add',
-  template: `
-    <p>
-      Put employee form here!
-    </p>
-  `,
+  templateUrl: 'employees-add.component.html',
   styles: []
 })
 export class EmployeesAddComponent implements OnInit {
 
+  projectsList:ProjectModel[];
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() 
+  {
+    this.projectsList = JSON.parse(localStorage.getItem("projects"));
   }
 
 }
