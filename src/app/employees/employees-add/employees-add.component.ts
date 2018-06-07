@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectModel } from '../../../model/projectModel';
+import { EmployeeModel } from '../../../model/employeeModel';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-employees-add',
@@ -8,12 +10,20 @@ import { ProjectModel } from '../../../model/projectModel';
 })
 export class EmployeesAddComponent implements OnInit {
 
-  projectsList:ProjectModel[];
+  projectsList: ProjectModel[];
+  model: EmployeeModel = new EmployeeModel();
   constructor() { }
 
-  ngOnInit() 
-  {
+  ngOnInit() {
     this.projectsList = JSON.parse(localStorage.getItem("projects"));
+  }
+
+  onSubmit() {
+    let employeesList: EmployeeModel[] = JSON.parse(localStorage.getItem("employees"));
+    employeesList.push(this.model);
+    localStorage.setItem("employees", JSON.stringify(employeesList));
+    
+    window.location.href='employees/list'; //todo replace with angular router
   }
 
 }

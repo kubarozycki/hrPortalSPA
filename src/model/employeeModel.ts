@@ -6,12 +6,16 @@ export class EmployeeModel {
     BirthAt: Date;
     Email: string;
     CurrentProject?: ProjectModel;
-
-    constructor(firstName: string, lastName: string, birthAt: Date, email: string, currentProject: ProjectModel) {
-        this.Firstname = firstName;
-        this.Lastname = lastName;
-        this.BirthAt = birthAt;
-        this.Email = email;
-        this.CurrentProject = currentProject;
+    
+    constructor(i?:Partial<EmployeeModel>){
+        Object.assign(this,i);
     }
+
+    // constructor(firstName: string, lastName: string, birthAt: Date, email: string, currentProject: ProjectModel) {
+    //     this.Firstname = firstName;
+    //     this.Lastname = lastName;
+    //     this.BirthAt = birthAt;
+    //     this.Email = email;
+    //     this.CurrentProject = currentProject;
+    // }
 }

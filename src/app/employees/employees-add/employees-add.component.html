@@ -1,26 +1,26 @@
 <div class="container">
     <div class="panel panel-default">
-        <form>
+        <form #employeeForm="ngForm" (ngSubmit)="onSubmit()">
             <div class="form-group">
                 <label>First name</label>
-                <input type="text" class="form-control" placeholder="First name">
+                <input [(ngModel)]="model.Firstname" type="text" class="form-control" placeholder="First name" name="firstName">
             </div>
             <div class="form-group">
                 <label>Last name</label>
-                <input type="text" class="form-control" placeholder="Last name">
+                <input [(ngModel)]="model.Lastname" type="text" class="form-control" placeholder="Last name" name="lastName">
             </div>
             <div class="form-group">
                 <label>Birth at</label>
-                <input type="date" class="form-control" placeholder="Birth at">
+                <input [(ngModel)]="model.BirthAt" type="date" class="form-control" placeholder="Birth at" name="birthAt">
             </div>
             <div class="form-group">
                 <label>Email</label>
-                <input type="email" class="form-control" placeholder="Email">
+                <input [(ngModel)]="model.Email" type="email" class="form-control" placeholder="Email" name="email">
             </div>
             <div class="form-group">
                 <label>Current project</label>
-                <select class="custom-select">
-                    <option *ngFor="let project of projectsList">{{project.Name}}</option>
+                <select class="custom-select" [(ngModel)]="model.CurrentProject" name="currentProject">
+                    <option *ngFor="let project of projectsList" [ngValue]="project">{{project.Name}}</option>
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Zapisz</button>
