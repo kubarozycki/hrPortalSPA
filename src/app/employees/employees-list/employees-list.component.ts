@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeModel } from '../../../model/employeeModel';
 import { ProjectModel } from '../../../model/projectModel';
+import {Constants} from '../../../common/constants';
 @Component({
   selector: 'app-employees-list',
   templateUrl: './employees-list.component.html',
@@ -14,7 +15,9 @@ export class EmployeesListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.employeesList = JSON.parse(localStorage.getItem("employees"));
+   
+
+    this.employeesList = JSON.parse(localStorage.getItem(Constants.EmployeesKey));
   }
 
 }

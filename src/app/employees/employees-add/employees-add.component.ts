@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ProjectModel } from '../../../model/projectModel';
 import { EmployeeModel } from '../../../model/employeeModel';
 import { NgForm } from '@angular/forms';
+import { Constants } from '../../../common/constants';
+
 
 @Component({
   selector: 'app-employees-add',
@@ -19,9 +21,9 @@ export class EmployeesAddComponent implements OnInit {
   }
 
   onSubmit() {
-    let employeesList: EmployeeModel[] = JSON.parse(localStorage.getItem("employees"));
+    let employeesList: EmployeeModel[] = JSON.parse(localStorage.getItem(Constants.EmployeesKey));
     employeesList.push(this.model);
-    localStorage.setItem("employees", JSON.stringify(employeesList));
+    localStorage.setItem(Constants.EmployeesKey, JSON.stringify(employeesList));
     
     window.location.href='employees/list'; //todo replace with angular router
   }
